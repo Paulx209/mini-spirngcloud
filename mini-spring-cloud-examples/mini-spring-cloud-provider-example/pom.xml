@@ -19,7 +19,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github</groupId>
+            <groupId>com.getian</groupId>
             <artifactId>mini-spring-cloud-tutu-discovery</artifactId>
         </dependency>
     </dependencies>
