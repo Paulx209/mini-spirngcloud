@@ -6,10 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author derek(易仁川)
- * @date 2022/3/19
- */
+
 @RestController
 @SpringBootApplication
 public class ProviderApplication {
