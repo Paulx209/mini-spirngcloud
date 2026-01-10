@@ -79,9 +79,7 @@ public class TutuServerApplication {
      */
     @GetMapping("listServiceNames")
     public Enumeration<String> listServiceNames() {
-        Enumeration<String> keys = serverMap.keys();
-        logger.info("listServiceNames service,serviceNames : {}", JSON.toJSONString(keys));
-        return keys;
+        return serverMap.keys();
     }
 
 
