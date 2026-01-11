@@ -17,6 +17,14 @@ public class TutuServiceInstance implements ServiceInstance {
 
     private Map<String, String> metadata;
 
+    public TutuServiceInstance(){}
+
+    public TutuServiceInstance(String serviceId, String host, int port) {
+        this.serviceId = serviceId;
+        this.host = host;
+        this.port = port;
+    }
+
     @Override
     public String getServiceId() {
         return serviceId;
