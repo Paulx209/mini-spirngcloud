@@ -7,27 +7,22 @@ import java.net.URI;
 import java.util.Map;
 
 public class TutuServiceInstance implements ServiceInstance {
-    //服务标识名
     private String serviceId;
 
-    //主机(ip)地址
     private String host;
 
-    //端口号
     private int port;
 
     private boolean secure = false;
 
-    private Map<String,String> metadata;
+    private Map<String, String> metadata;
 
-    public TutuServiceInstance(){
+    public TutuServiceInstance(){}
 
-    }
-
-    public TutuServiceInstance(String serviceId,String host, int port) {
+    public TutuServiceInstance(String serviceId, String host, int port) {
+        this.serviceId = serviceId;
         this.host = host;
         this.port = port;
-        this.serviceId = serviceId;
     }
 
     @Override
@@ -60,10 +55,6 @@ public class TutuServiceInstance implements ServiceInstance {
         return metadata;
     }
 
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
     public void setHost(String host) {
         this.host = host;
     }
@@ -78,5 +69,9 @@ public class TutuServiceInstance implements ServiceInstance {
 
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 }

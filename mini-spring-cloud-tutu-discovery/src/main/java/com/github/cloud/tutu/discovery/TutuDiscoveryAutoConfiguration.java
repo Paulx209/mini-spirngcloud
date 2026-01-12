@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class TutuDiscoveryAutoConfiguration {
-
     @Bean
     @ConditionalOnMissingBean
     public TutuDiscoveryProperties tutuDiscoveryProperties(){
@@ -15,9 +14,7 @@ public class TutuDiscoveryAutoConfiguration {
     }
 
     @Bean
-    public TutuDiscoveryClient tutuDiscoveryClient(TutuDiscoveryProperties tutuDiscoveryProperties){
+    public TutuDiscoveryClient discoveryClient(TutuDiscoveryProperties tutuDiscoveryProperties){
         return new TutuDiscoveryClient(tutuDiscoveryProperties);
     }
-
-
 }

@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.util.List;
 
-
 @SpringBootApplication
 public class ConsumerApplication {
 
@@ -39,12 +38,6 @@ public class ConsumerApplication {
             }
 
             throw new RuntimeException("No service instance for provider-application found");
-        }
-
-        @GetMapping("/test1")
-        public String test(){
-            List<String> services = discoveryClient.getServices();
-            return services.toString();
         }
     }
 }
