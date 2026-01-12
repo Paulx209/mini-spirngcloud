@@ -17,8 +17,8 @@ public class TutuRibbonClientConfiguration {
 
     @Bean
     @ConditionalOnMissingBean //这里确定要添加该注解吗？
-    public ServerList<?> ribbonServerList(IClientConfig config, TutuDiscoveryProperties tutuDiscoveryProperties){
-        TutuServerList serverList = new TutuServerList(tutuDiscoveryProperties);
+    public ServerList<?> ribbonServerList(IClientConfig config, TutuDiscoveryProperties discoveryProperties){
+        TutuServerList serverList = new TutuServerList(discoveryProperties);
         serverList.initWithNiwsConfig(config);
         return serverList;
     }

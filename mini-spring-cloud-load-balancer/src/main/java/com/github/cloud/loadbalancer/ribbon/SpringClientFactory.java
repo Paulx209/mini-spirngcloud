@@ -1,6 +1,8 @@
 package com.github.cloud.loadbalancer.ribbon;
 
+import com.github.cloud.loadbalancer.ribbon.config.RibbonClientConfiguration;
 import org.springframework.cloud.context.named.NamedContextFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * 为每一个负载均衡客户端创建一个应用上下文
@@ -8,6 +10,16 @@ import org.springframework.cloud.context.named.NamedContextFactory;
 public class SpringClientFactory extends NamedContextFactory<RibbonClientSpecification> {
     private static final String NAMESPACE = "ribbon";
     public SpringClientFactory(){
-        super(Ri);
+        super(RibbonClientConfiguration.class, NAMESPACE , "ribbon.client.name");
+    }
+
+    @Override
+    protected AnnotationConfigApplicationContext getContext(String name) {
+        return super.getContext(name);
+    }
+
+    @Override
+    public <C> C getInstance(String name, Class<C> type) {
+        return super.getInstance(name, type);
     }
 }
