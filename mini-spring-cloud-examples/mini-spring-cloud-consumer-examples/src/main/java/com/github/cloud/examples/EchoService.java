@@ -7,5 +7,4 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface EchoService {
     @PostMapping("echo")
     String echo();
-
 }

@@ -3,6 +3,7 @@ package com.github.cloud.openfeign;
 import feign.Client;
 import feign.Contract;
 import feign.Feign;
+import feign.Target;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import org.springframework.beans.BeansException;
@@ -38,7 +39,12 @@ public class FeignClientFactoryBean implements FactoryBean<Object>, ApplicationC
         Contract contract = bean.getInstance(contextId, Contract.class);
         Client client = bean.getInstance(contextId, Client.class);
 
-        return Feign.builder().encoder(encoder).decoder(decoder).contract(contract).client(client);
+        return Feign.builder()
+                .encoder(encoder)
+                .decoder(decoder)
+                .contract(contract)
+                .client(client)
+                .target(new Target.HardCodedTarget<>(type, contextId, "http://" + contextId));
     }
 
     @Override

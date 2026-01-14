@@ -27,7 +27,7 @@ public class FeignClientsRegistrar implements ImportBeanDefinitionRegistrar {
         for(Class<?> clazz : classes){
             GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
             //使用FeignClientFactoryBean生成Feign客户端
-            beanDefinition.setBeanClass(clazz);
+            beanDefinition.setBeanClass(FeignClientFactoryBean.class);
             String clientName = clazz.getAnnotation(FeignClient.class).value();
             beanDefinition.getPropertyValues().addPropertyValue("contextId",clientName);
             beanDefinition.getPropertyValues().addPropertyValue("type",clazz);
