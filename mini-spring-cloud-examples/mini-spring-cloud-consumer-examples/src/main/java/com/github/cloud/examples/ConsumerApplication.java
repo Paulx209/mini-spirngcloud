@@ -1,5 +1,6 @@
 package com.github.cloud.examples;
 
+import com.github.cloud.openfeign.EnableFeignClients;
 import com.github.cloud.tutu.discovery.TutuDiscoveryClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -17,10 +18,19 @@ import java.net.URI;
 import java.util.List;
 
 @SpringBootApplication
+@EnableFeignClients
 public class ConsumerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication.class, args);
+    }
+
+    @Autowired
+    private EchoService echoService;
+
+    @GetMapping("/bar")
+    public String bar(){
+        return echoService.echo();
     }
 
     @Configuration

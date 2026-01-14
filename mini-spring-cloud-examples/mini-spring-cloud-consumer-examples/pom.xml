@@ -21,6 +21,11 @@
 
         <dependency>
             <groupId>com.getian</groupId>
+            <artifactId>mini-spring-cloud-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.getian</groupId>
             <artifactId>mini-spring-cloud-tutu-discovery</artifactId>
         </dependency>
 
