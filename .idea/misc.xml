@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/mini-springCloud-provider-example/pom.xml" />
         <option value="$PROJECT_DIR$/mini-spring-cloud-examples/mini-spring-cloud-consumer-examples/pom.xml" />
+        <option value="$PROJECT_DIR$/mini-spring-cloud-openfeign/pom.xml" />
       </list>
     </option>
   </component>
