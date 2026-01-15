@@ -57,5 +57,20 @@ public class FeignClientFactoryBean implements FactoryBean<Object>, ApplicationC
         return this.type;
     }
 
+    public String getContextId() {
+        return contextId;
+    }
+
+    public void setContextId(String contextId) {
+        this.contextId = contextId;
+    }
+
+    public Class<?> getType() {
+        return type;
+    }
+
+    public void setType(Class<?> type) {
+        this.type = type;
+    }
 
 }
