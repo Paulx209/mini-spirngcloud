@@ -2,6 +2,8 @@ package com.github.cloud.examples;
 
 import com.github.cloud.openfeign.EnableFeignClients;
 import com.github.cloud.tutu.discovery.TutuDiscoveryClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,17 +22,9 @@ import java.util.List;
 @SpringBootApplication
 @EnableFeignClients
 public class ConsumerApplication {
-
+    private static final Logger logger = LoggerFactory.getLogger(ConsumerApplication.class);
     public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication.class, args);
-    }
-
-    @Autowired
-    private EchoService echoService;
-
-    @GetMapping("/bar")
-    public String bar(){
-        return echoService.echo();
     }
 
     @Configuration
@@ -58,6 +52,11 @@ public class ConsumerApplication {
 
         @Autowired
         private TutuDiscoveryClient discoveryClient;
+
+        @Autowired
+        private EchoService echoService;
+
+
 
         private RestTemplate restTemplate = new RestTemplate();
 
@@ -88,6 +87,12 @@ public class ConsumerApplication {
         @GetMapping("/foo")
         public String foo() {
             return loadBalancedRestTemplate.postForObject("http://provider-application/echo", null, String.class);
+        }
+
+        @GetMapping("/bar")
+        public String bar(){
+            logger.info("bar ... ");
+            return echoService.echo();
         }
     }
 }
